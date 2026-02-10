@@ -19,7 +19,7 @@ public class mainView extends JFrame {
 	 * Create the frame.
 	 */
 	public mainView() {
-		System.out.println("main view launched");
+		System.out.println("*main view launched*");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 668, 422);
 		setVisible(true);
@@ -33,6 +33,9 @@ public class mainView extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("*main view closed*");
+				setVisible(false);
+				shifumiView frame = new shifumiView();
 			}
 		});
 		btnNewButton.setBounds(122, 95, 140, 40);
