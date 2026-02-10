@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import controller.shifumiController;
 
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class shifumiView extends JFrame {
 
@@ -21,6 +22,8 @@ public class shifumiView extends JFrame {
 	
 	private int score_player = 0;
 	private int score_computer = 0;
+	private int player; 
+	private int computer;
 
 	/**
 	 * Create the frame.
@@ -50,6 +53,7 @@ public class shifumiView extends JFrame {
 		contentPane.add(lblComputer);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(161, 98, 326, 44);
 		contentPane.add(lblNewLabel_1);
@@ -59,23 +63,26 @@ public class shifumiView extends JFrame {
 		btnRock.setBounds(119, 189, 120, 54);
 		btnRock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int player; 
-				int computer;
 				try {
 					player = shifumiController.rock();
 					computer = shifumiController.computerChoice();
-					String winner = shifumiController.compare(player, computer);
-					lblNewLabel_1.setText(winner);
-					if(winner == "Vous gagnez") {
-						score_player = shifumiController.addScore(score_player);
+					int winner = shifumiController.compare(player, computer);
+					if(winner == 1) {
+						lblNewLabel_1.setText("Le joueur gagne.");
+						Thread.sleep(2000);
+						score_player += 1;
 						lblPlayer.setText("Player : " + String.valueOf(score_player));
-						lblNewLabel_1.setText(shifumiController.result(player, computer));
-					}else if(winner == "Vous perdez") {
-						score_computer = shifumiController.addScore(score_computer);
+						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
+					}else if(winner == 2) {
+						lblNewLabel_1.setText("L'ordinateur gagne.");
+						Thread.sleep(2000);
+						score_computer += 1;
 						lblComputer.setText("Computer : " + String.valueOf(score_computer));
-						lblNewLabel_1.setText(shifumiController.result(player, computer));
+						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}
-					lblNewLabel_1.setText(shifumiController.result(player, computer));
+					lblNewLabel_1.setText("Egalité.");
+					Thread.sleep(2000);
+					lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -89,23 +96,26 @@ public class shifumiView extends JFrame {
 		btnPaper.setBounds(259, 189, 120, 54);
 		btnPaper.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int player; 
-				int computer;
 				try {
 					player = shifumiController.paper();
 					computer = shifumiController.computerChoice();
-					String winner = shifumiController.compare(player, computer);
-					lblNewLabel_1.setText(winner);
-					if(winner == "Vous gagnez") {
-						score_player = shifumiController.addScore(score_player);
+					int winner = shifumiController.compare(player, computer);
+					if(winner == 1) {
+						lblNewLabel_1.setText("Le joueur gagne.");
+						Thread.sleep(2000);
+						score_player += 1;
 						lblPlayer.setText("Player : " + String.valueOf(score_player));
-						lblNewLabel_1.setText(shifumiController.result(player, computer));
-					}else if(winner == "Vous perdez") {
-						score_computer = shifumiController.addScore(score_computer);
+						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
+					}else if(winner == 2) {
+						lblNewLabel_1.setText("L'ordinateur gagne.");
+						Thread.sleep(2000);
+						score_computer += 1;
 						lblComputer.setText("Computer : " + String.valueOf(score_computer));
-						lblNewLabel_1.setText(shifumiController.result(player, computer));
+						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}
-					lblNewLabel_1.setText(shifumiController.result(player, computer));
+					lblNewLabel_1.setText("Egalité.");
+					Thread.sleep(2000);
+					lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -119,23 +129,26 @@ public class shifumiView extends JFrame {
 		btnScissors.setBounds(401, 189, 120, 54);
 		btnScissors.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int player; 
-				int computer;
 				try {
 					player = shifumiController.scissors();
 					computer = shifumiController.computerChoice();
-					String winner = shifumiController.compare(player, computer);
-					lblNewLabel_1.setText(winner);
-					if(winner == "Vous gagnez") {
-						score_player = shifumiController.addScore(score_player);
+					int winner = shifumiController.compare(player, computer);
+					if(winner == 1) {
+						lblNewLabel_1.setText("Le joueur gagne.");
+						Thread.sleep(2000);
+						score_player += 1;
 						lblPlayer.setText("Player : " + String.valueOf(score_player));
-						lblNewLabel_1.setText(shifumiController.result(player, computer));
-					}else if(winner == "Vous perdez") {
-						score_computer = shifumiController.addScore(score_computer);
+						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
+					}else if(winner == 2) {
+						lblNewLabel_1.setText("L'ordinateur gagne.");
+						Thread.sleep(2000);
+						score_computer += 1;
 						lblComputer.setText("Computer : " + String.valueOf(score_computer));
-						lblNewLabel_1.setText(shifumiController.result(player, computer));
+						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}
-					lblNewLabel_1.setText(shifumiController.result(player, computer));	
+					lblNewLabel_1.setText("Egalité.");
+					Thread.sleep(2000);
+					lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
