@@ -52,5 +52,17 @@ public class mainView extends JFrame {
 		btnDevineLeNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnDevineLeNombre.setBounds(46, 154, 238, 52);
 		contentPane.add(btnDevineLeNombre);
+		
+		JButton btnCalculatrice = new JButton("Calculatrice");
+		btnCalculatrice.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCalculatrice.setBounds(373, 55, 238, 52);
+		btnCalculatrice.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("*main view closed*");
+				setVisible(false);
+				calculatorView frame = new calculatorView();
+			}
+		});
+		contentPane.add(btnCalculatrice);
 	}
 }
