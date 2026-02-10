@@ -7,11 +7,20 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import controller.shifumiController;
+
+import javax.swing.JButton;
 
 public class shifumiView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
+	private int score_player = 0;
+	private int score_computer = 0;
 
 	/**
 	 * Create the frame.
@@ -23,13 +32,117 @@ public class shifumiView extends JFrame {
 		setVisible(true);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		score_player = 0;
+		score_computer = 0;
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Shifumi");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel.setBounds(258, 10, 92, 38);
-		contentPane.add(lblNewLabel);
+		JLabel lblPlayer = new JLabel("Player : ");
+		lblPlayer.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblPlayer.setBounds(521, 10, 120, 38);
+		contentPane.add(lblPlayer);
+		
+		JLabel lblComputer = new JLabel("Computer : ");
+		lblComputer.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblComputer.setBounds(0, 10, 167, 38);
+		contentPane.add(lblComputer);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(161, 98, 326, 44);
+		contentPane.add(lblNewLabel_1);
+		
+		JButton btnRock = new JButton("Rock");
+		btnRock.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnRock.setBounds(119, 189, 120, 54);
+		btnRock.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int player; 
+				int computer;
+				try {
+					player = shifumiController.rock();
+					computer = shifumiController.computerChoice();
+					String winner = shifumiController.compare(player, computer);
+					lblNewLabel_1.setText(winner);
+					if(winner == "Vous gagnez") {
+						score_player = shifumiController.addScore(score_player);
+						lblPlayer.setText("Player : " + String.valueOf(score_player));
+						lblNewLabel_1.setText(shifumiController.result(player, computer));
+					}else if(winner == "Vous perdez") {
+						score_computer = shifumiController.addScore(score_computer);
+						lblComputer.setText("Computer : " + String.valueOf(score_computer));
+						lblNewLabel_1.setText(shifumiController.result(player, computer));
+					}
+					lblNewLabel_1.setText(shifumiController.result(player, computer));
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		contentPane.add(btnRock);
+		
+		JButton btnPaper = new JButton("Paper");
+		btnPaper.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnPaper.setBounds(259, 189, 120, 54);
+		btnPaper.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int player; 
+				int computer;
+				try {
+					player = shifumiController.paper();
+					computer = shifumiController.computerChoice();
+					String winner = shifumiController.compare(player, computer);
+					lblNewLabel_1.setText(winner);
+					if(winner == "Vous gagnez") {
+						score_player = shifumiController.addScore(score_player);
+						lblPlayer.setText("Player : " + String.valueOf(score_player));
+						lblNewLabel_1.setText(shifumiController.result(player, computer));
+					}else if(winner == "Vous perdez") {
+						score_computer = shifumiController.addScore(score_computer);
+						lblComputer.setText("Computer : " + String.valueOf(score_computer));
+						lblNewLabel_1.setText(shifumiController.result(player, computer));
+					}
+					lblNewLabel_1.setText(shifumiController.result(player, computer));
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		contentPane.add(btnPaper);
+		
+		JButton btnScissors = new JButton("Scissors");
+		btnScissors.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnScissors.setBounds(401, 189, 120, 54);
+		btnScissors.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int player; 
+				int computer;
+				try {
+					player = shifumiController.scissors();
+					computer = shifumiController.computerChoice();
+					String winner = shifumiController.compare(player, computer);
+					lblNewLabel_1.setText(winner);
+					if(winner == "Vous gagnez") {
+						score_player = shifumiController.addScore(score_player);
+						lblPlayer.setText("Player : " + String.valueOf(score_player));
+						lblNewLabel_1.setText(shifumiController.result(player, computer));
+					}else if(winner == "Vous perdez") {
+						score_computer = shifumiController.addScore(score_computer);
+						lblComputer.setText("Computer : " + String.valueOf(score_computer));
+						lblNewLabel_1.setText(shifumiController.result(player, computer));
+					}
+					lblNewLabel_1.setText(shifumiController.result(player, computer));	
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		contentPane.add(btnScissors);
+		
 	}
 }
