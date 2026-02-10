@@ -35,7 +35,7 @@ public class mainView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("*main view closed*");
 				setVisible(false);
-				shifumiView frame = new shifumiView();
+				shifumiRulesView frame = new shifumiRulesView();
 			}
 		});
 		btnNewButton.setBounds(122, 95, 140, 40);
