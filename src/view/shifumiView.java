@@ -42,17 +42,17 @@ public class shifumiView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblPlayer = new JLabel("Player : ");
+		JLabel lblPlayer = new JLabel("Player : 0");
 		lblPlayer.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblPlayer.setBounds(521, 10, 120, 38);
 		contentPane.add(lblPlayer);
 		
-		JLabel lblComputer = new JLabel("Computer : ");
+		JLabel lblComputer = new JLabel("Computer : 0");
 		lblComputer.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblComputer.setBounds(0, 10, 167, 38);
 		contentPane.add(lblComputer);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
+		JLabel lblNewLabel_1 = new JLabel("Partie en cours...");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setBounds(161, 98, 326, 44);
@@ -69,18 +69,15 @@ public class shifumiView extends JFrame {
 					int winner = shifumiController.compare(player, computer);
 					if(winner == 1) {
 						lblNewLabel_1.setText("Le joueur gagne.");
-						Thread.sleep(2000);
 						score_player += 1;
 						lblPlayer.setText("Player : " + String.valueOf(score_player));
-						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}else if(winner == 2) {
 						lblNewLabel_1.setText("L'ordinateur gagne.");
-						Thread.sleep(2000);
 						score_computer += 1;
 						lblComputer.setText("Computer : " + String.valueOf(score_computer));
-						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
+					}else {
+						lblNewLabel_1.setText("Egalité.");
 					}
-					lblNewLabel_1.setText("Egalité.");
 					Thread.sleep(2000);
 					lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 				} catch (InterruptedException e1) {
@@ -102,18 +99,16 @@ public class shifumiView extends JFrame {
 					int winner = shifumiController.compare(player, computer);
 					if(winner == 1) {
 						lblNewLabel_1.setText("Le joueur gagne.");
-						Thread.sleep(2000);
 						score_player += 1;
 						lblPlayer.setText("Player : " + String.valueOf(score_player));
-						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}else if(winner == 2) {
 						lblNewLabel_1.setText("L'ordinateur gagne.");
-						Thread.sleep(2000);
 						score_computer += 1;
 						lblComputer.setText("Computer : " + String.valueOf(score_computer));
-						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}
-					lblNewLabel_1.setText("Egalité.");
+					else {
+						lblNewLabel_1.setText("Egalité.");
+					}
 					Thread.sleep(2000);
 					lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 				} catch (InterruptedException e1) {
@@ -135,18 +130,16 @@ public class shifumiView extends JFrame {
 					int winner = shifumiController.compare(player, computer);
 					if(winner == 1) {
 						lblNewLabel_1.setText("Le joueur gagne.");
-						Thread.sleep(2000);
 						score_player += 1;
 						lblPlayer.setText("Player : " + String.valueOf(score_player));
-						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}else if(winner == 2) {
 						lblNewLabel_1.setText("L'ordinateur gagne.");
-						Thread.sleep(2000);
 						score_computer += 1;
 						lblComputer.setText("Computer : " + String.valueOf(score_computer));
-						lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 					}
-					lblNewLabel_1.setText("Egalité.");
+					else {
+						lblNewLabel_1.setText("Egalité.");
+					}
 					Thread.sleep(2000);
 					lblNewLabel_1.setText(shifumiController.result(score_player, score_computer));
 				} catch (InterruptedException e1) {

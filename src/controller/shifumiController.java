@@ -38,7 +38,7 @@ public class shifumiController {
 	
 	public static int computerChoice() throws InterruptedException {
 		System.out.println("L'ordinateur joue");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		Random rand = new Random();
         int tirage = rand.nextInt(3) + 1;
         return tirage;
@@ -72,7 +72,7 @@ public class shifumiController {
 			return msg + "L'ordinateur gagne !";
 		}
 		System.out.println(resume);
-		return resume;
+		return "Partie en cours...";
 	}
 
 }
