@@ -2,6 +2,7 @@ package controller;
 
 import view.shifumiView;
 
+
 import java.util.Random;
 
 public class shifumiController {

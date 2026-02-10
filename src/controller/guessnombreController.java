@@ -1,10 +1,45 @@
 package controller;
 
 import java.util.Scanner;
+import java.util.Random; 
 
 public class guessnombreController {
 	
-	static void trouve_le_nombre() {
+	
+	public static int create(int max) {
+		Random rand = new Random();
+        int tirage = rand.nextInt(max);
+        return tirage;
+	}
+	
+	
+	public static int compare(int nombre, int guess) {
+		if(nombre > guess) {
+			return 2;
+		}
+		else if(nombre < guess) {
+			return 0;
+		}
+		return 1;
+	}
+	
+	public static String result(int compare) {
+		if(compare == 2) {
+			return "Plus grand";
+		}else if(compare == 0) {
+			return "Plus petit";
+		}
+		return "Trouvé !";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	static void guessnombre() {
 		Scanner sc = new Scanner (System.in);
 		int x, y, a=0, nbf, nb1, nb2, c1=1, c2=1; 							//a pour relancer une partie, x et y nombres entrés par les j
 		System.out.println("Règles du jeu: deux joueurs s'affrontent pour trouver le nombre mystère entre 1 et le nombre choisis par le joueur");		
