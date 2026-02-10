@@ -64,5 +64,17 @@ public class mainView extends JFrame {
 			}
 		});
 		contentPane.add(btnCalculatrice);
+		
+		JButton btnBatailleNavale = new JButton("Bataille Navale");
+		btnBatailleNavale.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnBatailleNavale.setBounds(373, 154, 238, 52);
+		btnBatailleNavale.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("*main view closed*");
+				setVisible(false);
+				navalRulesView frame = new navalRulesView();
+			}
+		});
+		contentPane.add(btnBatailleNavale);
 	}
 }
