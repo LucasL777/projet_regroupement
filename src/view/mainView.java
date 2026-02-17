@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class mainView extends JFrame {
 
@@ -38,7 +40,7 @@ public class mainView extends JFrame {
 				shifumiRulesView frame = new shifumiRulesView();
 			}
 		});
-		btnNewButton.setBounds(46, 55, 238, 52);
+		btnNewButton.setBounds(46, 187, 238, 52);
 		contentPane.add(btnNewButton);
 		
 		JButton btnDevineLeNombre = new JButton("Devine le nombre");
@@ -50,12 +52,12 @@ public class mainView extends JFrame {
 			}
 		});
 		btnDevineLeNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnDevineLeNombre.setBounds(46, 154, 238, 52);
+		btnDevineLeNombre.setBounds(46, 272, 238, 52);
 		contentPane.add(btnDevineLeNombre);
 		
 		JButton btnCalculatrice = new JButton("Calculatrice");
 		btnCalculatrice.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCalculatrice.setBounds(373, 55, 238, 52);
+		btnCalculatrice.setBounds(373, 187, 238, 52);
 		btnCalculatrice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("*main view closed*");
@@ -67,7 +69,7 @@ public class mainView extends JFrame {
 		
 		JButton btnBatailleNavale = new JButton("Bataille Navale");
 		btnBatailleNavale.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnBatailleNavale.setBounds(373, 154, 238, 52);
+		btnBatailleNavale.setBounds(373, 272, 238, 52);
 		btnBatailleNavale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("*main view closed*");
@@ -76,5 +78,11 @@ public class mainView extends JFrame {
 			}
 		});
 		contentPane.add(btnBatailleNavale);
+		
+		JLabel lblNewLabel = new JLabel("Mes jeux");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(222, 31, 208, 52);
+		contentPane.add(lblNewLabel);
 	}
 }

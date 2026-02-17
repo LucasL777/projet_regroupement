@@ -63,7 +63,7 @@ public class guessnombreView extends JFrame {
 				String res = guessnombreController.result(retour);
 				lblNewLabel_1.setText(res);
 				lblNewLabel.setText("Nb de coup : " + String.valueOf(nb_coup));
-				
+				textField.setText("");
 			}
 		});
 		contentPane.add(btnNewButton);

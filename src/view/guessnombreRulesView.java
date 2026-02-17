@@ -52,10 +52,10 @@ public class guessnombreRulesView extends JFrame {
 		lblNewLabel2.setBounds(154, 85, 342, 39);
 		contentPane.add(lblNewLabel2);
 		
-		JLabel lblNewLabel3 = new JLabel("Le joueur doit trouver un nombre.");
+		JLabel lblNewLabel3 = new JLabel("Le joueur doit trouver un nombre entre 0 et 100");
 		lblNewLabel3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel3.setBounds(164, 133, 358, 53);
+		lblNewLabel3.setBounds(95, 133, 470, 53);
 		contentPane.add(lblNewLabel3);
 		
 		JLabel lblNewLabel4 = new JLabel("L'ordinateur lui répond par 'plus grand' ou 'plus petit'.");

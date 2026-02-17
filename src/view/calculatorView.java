@@ -54,6 +54,7 @@ public class calculatorView extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel lblErreur = new JLabel("");
+		lblErreur.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErreur.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblErreur.setBounds(132, 298, 366, 31);
 		contentPane.add(lblErreur);
@@ -128,21 +129,32 @@ public class calculatorView extends JFrame {
 		btnRes.setBounds(456, 106, 51, 50);
 		btnRes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (nb1.getText() == null || nb1.getText().isEmpty() ||
+				        nb2.getText() == null || nb2.getText().isEmpty()) {
+				        lblErreur.setText("Veuillez remplir les deux nombres !");
+				        return; 
+				    }
 				if(ope.getText()=="+") {
 					double ret = calculatorController.addition(Double.parseDouble(nb1.getText()), Double.parseDouble(nb2.getText()));
 					res.setText(String.valueOf(ret));
+					lblErreur.setText("");
 				}else if(ope.getText()=="-") {
 					double ret = calculatorController.soustraction(Double.parseDouble(nb1.getText()), Double.parseDouble(nb2.getText()));
 					res.setText(String.valueOf(ret));
+					lblErreur.setText("");
 				}else if(ope.getText()=="x") {
 					double ret = calculatorController.multiplication(Double.parseDouble(nb1.getText()), Double.parseDouble(nb2.getText()));
 					res.setText(String.valueOf(ret));
+					lblErreur.setText("");
 				}else if(ope.getText()=="/"){
 					double ret = calculatorController.division(Double.parseDouble(nb1.getText()), Double.parseDouble(nb2.getText()));
 					res.setText(String.valueOf(ret));
+					lblErreur.setText("");
 				}else {
 					lblErreur.setText("Aucun opérateur choisi");
+					return;
 				}
+				
 			}
 		});
 		contentPane.add(btnRes);
