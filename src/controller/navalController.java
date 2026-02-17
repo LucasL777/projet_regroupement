@@ -98,4 +98,13 @@ public class navalController {
 	public boolean isTourJoueur() {
 		return tourJoueur;
 	}
+	
+	public int getScoreJoueur() {
+		return NB_NAVIRE - naviresOrdi.size();
+	}
+
+	public int getScoreOrdi() {
+		return NB_NAVIRE - naviresJoueur.size();
+	}
+
 }

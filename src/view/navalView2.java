@@ -16,6 +16,9 @@ public class navalView2 extends JFrame {
 	private JPanel contentPane;
 	private JLabel lblMessage;
 	private navalController controller;
+	private JLabel lblScoreJoueur;
+	private JLabel lblScoreOrdi;
+
 
 	public navalView2(Set<String> positionsJoueur) {
 
@@ -48,6 +51,17 @@ public class navalView2 extends JFrame {
 		lblTitre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitre.setBounds(100, 10, 450, 46);
 		contentPane.add(lblTitre);
+		
+		lblScoreJoueur = new JLabel("Vous avez touché : 0 / 11");
+		lblScoreJoueur.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblScoreJoueur.setBounds(10, 70, 250, 30);
+		contentPane.add(lblScoreJoueur);
+
+		lblScoreOrdi = new JLabel("L'ordi a touché : 0 / 11");
+		lblScoreOrdi.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblScoreOrdi.setBounds(10, 100, 250, 30);
+		contentPane.add(lblScoreOrdi);
+
 		
 
 		lblMessage = new JLabel("");
@@ -84,20 +98,25 @@ public class navalView2 extends JFrame {
 						}
 
 						btn.setEnabled(false);
+						lblScoreJoueur.setText("Vous avez touché : " + controller.getScoreJoueur() + " / 11");
 						lblMessage.setText(resultat);
 
 						if(controller.victoireJoueur()) {
 							lblMessage.setText("Victoire du joueur !");
 							btnQuitter.setVisible(true);
+							return;
 						}
 
 						// Tour de l'ordi
 						String tirOrdi = controller.tirOrdi();
 						lblMessage.setText(lblMessage.getText() + " | " + tirOrdi);
+						lblScoreOrdi.setText("L'ordi a touché : " + controller.getScoreOrdi() + " / 11");
+
 
 						if(controller.victoireOrdi()) {
 							lblMessage.setText("L'ordinateur a gagné !");
 							btnQuitter.setVisible(true);
+							return;
 						}
 					}
 				});
